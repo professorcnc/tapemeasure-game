@@ -680,7 +680,14 @@ function drawTape(canvas, opts) {
 
   /* housing */
   ctx.fillStyle = house;
-  ctx.beginPath(); ctx.roundRect(0, 0, hW + 6, H, 4); ctx.fill();
+  ctx.beginPath();
+  const _r = 4, _x = 0, _y = 0, _w = hW + 6, _h = H;
+  ctx.moveTo(_x + _r, _y);
+  ctx.lineTo(_x + _w - _r, _y); ctx.quadraticCurveTo(_x + _w, _y, _x + _w, _y + _r);
+  ctx.lineTo(_x + _w, _y + _h - _r); ctx.quadraticCurveTo(_x + _w, _y + _h, _x + _w - _r, _y + _h);
+  ctx.lineTo(_x + _r, _y + _h); ctx.quadraticCurveTo(_x, _y + _h, _x, _y + _h - _r);
+  ctx.lineTo(_x, _y + _r); ctx.quadraticCurveTo(_x, _y, _x + _r, _y);
+  ctx.closePath(); ctx.fill();
   ctx.fillStyle = houseL; ctx.fillRect(hW - 2, tTop, 8, tH);
   [H * 0.28, H * 0.55, H * 0.78].forEach(y => {
     ctx.fillStyle = rivet; ctx.beginPath(); ctx.arc(hW * 0.38, y, 3, 0, Math.PI * 2); ctx.fill();
