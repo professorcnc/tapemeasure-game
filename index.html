@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head></head><body>
+
+
+
+
+
+
+
+
+
+
+
+<div class="app-shell">
+
+  
+  <div class="app-header">
+    <div class="app-logo"><i class="ti ti-ruler-measure"></i></div>
+    <div>
+      <div class="app-title">Ruler Game</div>
+      <div class="app-sub">Learn to read a tape measure</div>
+    </div>
+  </div>
+
+  
+  <div class="nav">
+    
+      <i class="ti ti-book-2"></i> Learn
+    
+    
+      <i class="ti ti-target"></i> Practice
+    
+    
+      <i class="ti ti-bolt"></i> Challenge
+    
+  </div>
+
+  
+  <div class="screen active">
+    <div class="step-grid"></div>
+    <div class="lesson-card">
+      <div class="tape-wrap" style="cursor:default;">
+        <canvas height="110"></canvas>
+      </div>
+      <div class="lesson-explain"></div>
+    </div>
+    <div class="btn-row" style="margin-top:1rem;justify-content:space-between;">
+      
+        <i class="ti ti-arrow-left"></i> Prev
+      
+      
+        Next <i class="ti ti-arrow-right"></i>
+      
+    </div>
+  </div>
+
+  
+  <div class="screen">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;">
+      <div class="mode-toggle">
+        Find it
+        Type it
+      </div>
+      <div style="display:flex;align-items:center;">
+        <span class="sec-label" style="margin:0;">Precision</span>
+        
+          <option value="2">&#189; inch</option>
+          <option value="4">&#188; inch</option>
+          <option value="8" selected="selected">⅛ inch</option>
+          <option value="16">1/16 inch</option>
+        
+      </div>
+    </div>
+
+    <div class="sc-card">
+      <div class="sc-img-wrap">
+        <img src="" alt=""/>
+        <div class="sc-img-overlay"></div>
+        <div class="sc-img-label">
+          <div class="sc-tag"></div>
+          <div class="sc-context-text"></div>
+        </div>
+        <div class="img-credit">Photo: Unsplash</div>
+      </div>
+      <div class="sc-ask-wrap">
+        <div class="sc-ask-label">Find this measurement</div>
+        <div class="sc-ask-val"></div>
+      </div>
+    </div>
+
+    <div class="tape-wrap">
+      <canvas height="110"></canvas>
+    </div>
+
+    <div style="display:none;">
+      <div class="key-entry">
+        
+        
+          <i class="ti ti-check"></i> Check
+        
+      </div>
+      <div class="key-hint">Whole + fraction: <strong>1 3/4</strong> — or just fraction: <strong>5/8</strong></div>
+    </div>
+
+    <div class="feedback fb-empty"></div>
+
+    <div class="stats-row">
+      <div class="stat"><div class="stat-n">0</div><div class="stat-l">Correct</div></div>
+      <div class="stat"><div class="stat-n">0</div><div class="stat-l">Streak</div></div>
+      <div class="stat"><div class="stat-n">—</div><div class="stat-l">Accuracy</div></div>
+    </div>
+
+    <div class="btn-row" style="justify-content:space-between;">
+      <i class="ti ti-bulb"></i> Hint
+      
+        <i class="ti ti-bolt"></i> Try timed
+      
+    </div>
+  </div>
+
+  
+  <div class="screen">
+
+    
+    <div>
+      <div class="sec-label">settings</div>
+      <div class="settings-panel">
+        <div class="settings-grid">
+          <div>
+            <div class="sec-label" style="margin-bottom:.4rem;">precision</div>
+            
+              <option value="4">&#188; inch</option>
+              <option value="8" selected="selected">⅛ inch</option>
+              <option value="16">1/16 inch</option>
+            
+          </div>
+          <div>
+            <div class="sec-label" style="margin-bottom:.4rem;">mode</div>
+            <div class="mode-toggle">
+              Find it
+              Type it
+            </div>
+          </div>
+        </div>
+        <div class="settings-note">3 strikes ends the game. 10 correct = next level. Timer shrinks each level. Points = level &#215; 10.</div>
+      </div>
+
+      <div class="sec-label">leaderboard</div>
+      <div class="lb-wrap"></div>
+
+      
+        <i class="ti ti-player-play"></i> Start challenge
+      
+    </div>
+
+    
+    <div style="display:none;">
+      <div class="sc-card">
+        <div class="sc-img-wrap" style="height:160px;">
+          <img src="" alt=""/>
+          <div class="sc-img-overlay"></div>
+          <div class="sc-img-label">
+            <div class="sc-tag"></div>
+            <div class="sc-context-text"></div>
+          </div>
+          
+          <div style="position:absolute;top:.75rem;right:.75rem;">
+            <div style="background:rgba;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:500;color:#fff;font-family:&#39;DM Mono&#39;,monospace;">0 pts</div>
+          </div>
+          
+          <div style="position:absolute;top:.75rem;left:.75rem;">
+            <div style="background:rgba;border-radius:999px;padding:4px 12px;font-size:12px;color:#fff;">
+              Lv <span>1</span> &#183; <span>0</span>/10
+            </div>
+          </div>
+          <div class="img-credit">Photo: Unsplash</div>
+        </div>
+        <div class="sc-ask-wrap" style="padding:.75rem 1rem .6rem;">
+          <div class="timer-wrap" style="margin:.1rem 0 .7rem;">
+            <div class="timer-bar" style="width:100%;background:var;"></div>
+          </div>
+          <div class="sc-ask-label">Find this measurement</div>
+          <div class="sc-ask-val"></div>
+        </div>
+      </div>
+
+      <div class="tape-wrap">
+        <canvas height="110"></canvas>
+      </div>
+
+      <div style="display:none;">
+        <div class="key-entry">
+          
+          <i class="ti ti-check"></i>
+        </div>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:.4rem;">
+        <div class="strikes"></div>
+        <div style="font-size:12px;color:var;">3 strikes = game over</div>
+      </div>
+
+      <div class="feedback fb-empty"></div>
+    </div>
+
+    
+    <div style="display:none;">
+      <div class="go-wrap">
+        <div class="go-score">0</div>
+        <div class="go-label">final score</div>
+        <div class="stats-row" style="max-width:380px;margin:0 auto 1rem;">
+          <div class="stat"><div class="stat-n">1</div><div class="stat-l">Level</div></div>
+          <div class="stat"><div class="stat-n">0</div><div class="stat-l">Answered</div></div>
+          <div class="stat"><div class="stat-n">—</div><div class="stat-l">Personal best</div></div>
+        </div>
+        <div style="display:none;background:var;color:var;border:0.5px solid var;border-radius:var;padding:10px 16px;font-size:14px;margin-bottom:1rem;text-align:center;">
+          <i class="ti ti-trophy"></i> New personal best!
+        </div>
+      </div>
+      <div class="btn-row" style="justify-content:center;">
+        
+          <i class="ti ti-target"></i> Practice more
+        
+        
+          <i class="ti ti-refresh"></i> Play again
+        
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+<script type="module" src="https://s.brightspace.com/lib/bsi/2026.5.295/unbundled/mathjax.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					if (document.querySelector('math, .d2l-element, .d2l-cplus-layout') || /\$\$|\\\(|\\\[|\\begin{|\\ref{|\\eqref{/.test(document.body.innerHTML)) {
+						document.querySelectorAll('mspace[linebreak="newline"]').forEach(elm => {
+							elm.setAttribute('style', 'display: block; height: 0.5rem;');
+						});
+
+						document.querySelectorAll('math mmultiscripts > none').forEach(elm => {
+							const mrow = document.createElementNS('http://www.w3.org/1998/Math/MathML', 'mrow');
+							elm.replaceWith(mrow);
+						});
+
+						window.D2L.MathJax.loadMathJax({
+							outputScale: 1.5,
+							renderLatex: false,
+							enableMML3Support: false
+						});
+					}
+				});</script><script type="module" src="https://s.brightspace.com/lib/bsi/2026.5.295/unbundled/prism.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					document.querySelectorAll('.d2l-code').forEach(code => {
+						window.D2L.Prism.formatCodeElement(code, true);
+					});
+				});</script><script type="module" src="https://s.brightspace.com/lib/bsi/2026.5.295/unbundled/embeds.js"></script><script type="text/javascript">document.addEventListener('DOMContentLoaded', function() {
+					window.D2L.EmbedRenderer.renderEmbeds(document.body);
+				});</script></body></html>
