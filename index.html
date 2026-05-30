@@ -412,7 +412,7 @@ select {
           <div class="sc-tag" id="prac-tag"></div>
           <div class="sc-context-text" id="prac-ctx"></div>
         </div>
-        <div class="img-credit">Photo: Unsplash</div>
+        
       </div>
       <div class="sc-ask-wrap">
         <div class="sc-ask-label">Find this measurement</div>
@@ -505,7 +505,7 @@ select {
               Lv <span id="cg-level">1</span> · <span id="cg-qc">0</span>/10
             </div>
           </div>
-          <div class="img-credit">Photo: Unsplash</div>
+          
         </div>
         <div class="sc-ask-wrap" style="padding:.75rem 1rem .6rem">
           <div class="timer-wrap" style="margin:.1rem 0 .7rem">
@@ -565,44 +565,19 @@ select {
 <script>
 /* ── DATA ── */
 const SCENARIOS = [
-  { name: "Carpentry", icon: "🪚",
-    images: [
-      "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=640&q=80",
-      "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=640&q=80",
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=640&q=80",
-    ],
+  { name: "Carpentry", icon: "🪚", bg: "#3d2b1f", accent: "#c47d3a",
     contexts: ["Cut a board to length.", "Mark a shelf edge.", "Trim a door frame.", "Space the studs.", "Fit a drawer slide."]
   },
-  { name: "Sewing", icon: "🧵",
-    images: [
-      "https://images.unsplash.com/photo-1558171813-0c83f8e1e3e5?w=640&q=80",
-      "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=640&q=80",
-      "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?w=640&q=80",
-    ],
+  { name: "Sewing", icon: "🧵", bg: "#2d1f35", accent: "#b06abf",
     contexts: ["Measure fabric for a hem.", "Cut ribbon to length.", "Check seam allowance.", "Mark a dart position.", "Fit a sleeve cuff."]
   },
-  { name: "Cooking", icon: "🍳",
-    images: [
-      "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=640&q=80",
-      "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?w=640&q=80",
-      "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=640&q=80",
-    ],
+  { name: "Cooking", icon: "🍳", bg: "#2a1f0f", accent: "#d4873a",
     contexts: ["Roll dough to thickness.", "Cut pastry strips.", "Portion a tart.", "Check pan depth.", "Trim parchment paper."]
   },
-  { name: "Home repair", icon: "🔧",
-    images: [
-      "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=640&q=80",
-      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=640&q=80",
-      "https://images.unsplash.com/photo-1530124566582-a618bc2615dc?w=640&q=80",
-    ],
+  { name: "Home repair", icon: "🔧", bg: "#1a2535", accent: "#4a8fc4",
     contexts: ["Mark a picture hook.", "Check a tile gap.", "Find the stud center.", "Fit weatherstripping.", "Position a hinge."]
   },
-  { name: "Woodworking", icon: "🪵",
-    images: [
-      "https://images.unsplash.com/photo-1601058272524-0611e132f3c9?w=640&q=80",
-      "https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=640&q=80",
-      "https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=640&q=80",
-    ],
+  { name: "Woodworking", icon: "🪵", bg: "#2b2010", accent: "#a0712a",
     contexts: ["Lay out a dovetail.", "Mark tenon shoulders.", "Check mortise depth.", "Space dowel holes.", "Measure a rabbet."]
   },
 ];
@@ -764,13 +739,17 @@ function getX(canvas, clientX) {
 }
 
 function setScenarioCard(sc, imgEl, tagEl, ctxEl, ctxText) {
-  const url = pick(sc.images);
-  imgEl.style.opacity = '0';
-  imgEl.onload = () => { imgEl.style.opacity = '1'; };
-  imgEl.onerror = () => { imgEl.style.display = 'none'; };
-  imgEl.src = url;
-  imgEl.alt = sc.name + ' scenario';
-  tagEl.innerHTML = sc.icon + ' ' + sc.name;
+  const wrap = imgEl.parentElement;
+  wrap.style.background = sc.bg;
+  imgEl.style.display = 'none';
+  if (!wrap.querySelector('.sc-big-icon')) {
+    const bigIcon = document.createElement('div');
+    bigIcon.className = 'sc-big-icon';
+    bigIcon.style.cssText = 'position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);font-size:64px;opacity:0.18;pointer-events:none;user-select:none;';
+    wrap.insertBefore(bigIcon, wrap.firstChild);
+  }
+  wrap.querySelector('.sc-big-icon').textContent = sc.icon;
+  tagEl.innerHTML = '<span style="color:' + sc.accent + '">' + sc.icon + '</span> ' + sc.name;
   ctxEl.textContent = ctxText;
 }
 
@@ -1090,3 +1069,4 @@ setTimeout(() => {
 </script>
 </body>
 </html>
+
